@@ -297,16 +297,99 @@
     "description": "snip flex html"
   },
   "Function With Custom Error": {
-  "prefix": "FnEr",
-  "body": [
-    "function myFunction(val1, val2) {",
-    "  if (...) {",
-    "    return val1 + val2;",
-    "  }",
-    "  // this error message will be shown when an error occurs",
-    "  throw new Error(\"Custom Error Goes Here // Be descriptive\");",
-    "}"
-  ],
-  "description": "Function With Custom Error"
- }
+    "prefix": "snip-FnEr",
+    "body": [
+      "function myFunction(val1, val2) {",
+      "  if (...) {",
+      "    return val1 + val2;",
+      "  }",
+      "  // this error message will be shown when an error occurs",
+      "  throw new Error(\"Custom Error Goes Here // Be descriptive\");",
+      "}"
+    ],
+    "description": "Function With Custom Error"
+  },
+  "Getter Setter Inside Function": {
+    "prefix": "snip-GetSetFun",
+    "body": [
+      "function makeBankAccount() {",
+      "  // this one is private",
+      "  let balance = 0;",
+      "",
+      "  // a \"getter\", made public via the returned object below",
+      "  function getBalance() {",
+      "    return balance;",
+      "  }",
+      "",
+      "  // a \"setter\", made public via the returned object below",
+      "  function setBalance(amount) {",
+      "    // ... validate before updating the balance",
+      "    balance = amount;",
+      "  }",
+      "",
+      "  return {",
+      "    // ...",
+      "    getBalance,",
+      "    setBalance",
+      "  };",
+      "}",
+      "",
+      "const account = makeBankAccount();",
+      "account.setBalance(100);"
+    ],
+    "description": "Getter Setter Inside Function"
+  },
+  "Promise Async Await": {
+    "prefix": "snip-promise-async-await",
+    "body": [
+      "import { get } from \"request\";",
+      "import { writeFile } from \"fs\";",
+      "",
+      "get(\"https://en.wikipedia.org/wiki/Robert_Cecil_Martin\")",
+      "  .then(response => {",
+      "    return writeFile(\"article.html\", response);",
+      "  })",
+      "  .then(() => {",
+      "    console.log(\"File written\");",
+      "  })",
+      "  .catch(err => {",
+      "    console.error(err);",
+      "  });",
+      "",
+      "// or ",
+      "",
+      "import { get } from \"request-promise\";",
+      "import { writeFile } from \"fs-promise\";",
+      "",
+      "async function getCleanCodeArticle() {",
+      "  try {",
+      "    const response = await get(",
+      "      \"https://en.wikipedia.org/wiki/Robert_Cecil_Martin\"",
+      "    );",
+      "    await writeFile(\"article.html\", response);",
+      "    console.log(\"File written\");",
+      "  } catch (err) {",
+      "    console.error(err);",
+      "  }",
+      "}"
+    ],
+    "description": "Promise Async Await"
+  },
+  "Try Catch Error": {
+    "prefix": "snip-try-catch",
+    "body": [
+      "try {",
+      "  functionThatMightThrow();",
+      "} catch (error) {",
+      "  // One option (more noisy than console.log):",
+      "  console.error(error);",
+      "  // Another option:",
+      "  notifyUserOfError(error);",
+      "  // Another option:",
+      "  reportErrorToService(error);",
+      "  // OR do all three!",
+      "}"
+    ],
+    "description": "Try Catch Error"
+  }
 }

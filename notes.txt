@@ -1,0 +1,3 @@
+snippets-paste-in-snippets-file.js 
+is not JS file
+copy these snippets in your VSCode
